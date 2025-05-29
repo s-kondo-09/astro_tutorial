@@ -1,5 +1,20 @@
 ---
+const title = "私のAstroサイト";
 
+const pageTitle = "私について";
+
+const identity = {
+  firstName: "サラ",
+  country: "カナダ",
+  occupation: "技術ライター",
+  hobbies: ["写真", "バードウォッチング", "野球"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメントの執筆"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,13 +23,28 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<a href="/">ホーム</a>
 		<a href="/about/">概要</a>
 		<a href="/blog/">ブログ</a>
 
-		<h2>... そして私の新しいAstroサイトについて！</h2>
+		<h2>{pageTitle}</h2>
+		<p>私の名前は{identity.firstName}です。</p>
+		<p>私は{identity.country}に住んでいます。</p>
+		<p>私の職業は{identity.occupation}です。</p>
+		<p>私の趣味は{identity.hobbies.join(", ")}です。</p>
+		<p>私のスキルは{skills.join(", ")}です。</p>
+
+		{happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
+
+		{finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
+
+		{goal === 3 ? (
+			<p>My goal is to finish in 3 days. 3日で終えるのが目標です。</p>
+		) : (
+			<p>My goal is not 3 days. 3日が目標ではありません。</p>
+		)}
 	</body>
 </html>
