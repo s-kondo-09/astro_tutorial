@@ -1,4 +1,8 @@
 ---
+import "../style/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
 const title = "私のAstroサイト";
 
 const pageTitle = "私について";
@@ -26,9 +30,7 @@ const goal = 3;
 		<title>{title}</title>
 	</head>
 	<body>
-		<a href="/">ホーム</a>
-		<a href="/about/">概要</a>
-		<a href="/blog/">ブログ</a>
+		<Header />
 
 		<h2>{pageTitle}</h2>
 		<p>私の名前は{identity.firstName}です。</p>
@@ -46,5 +48,9 @@ const goal = 3;
 		) : (
 			<p>My goal is not 3 days. 3日が目標ではありません。</p>
 		)}
+		<Footer />
+		<script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
